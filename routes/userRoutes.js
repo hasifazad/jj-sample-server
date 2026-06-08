@@ -1,33 +1,17 @@
-
-
-let express = require('express')
+let express = require('express');
 let userRouter = express.Router()
 
 
-userRouter.get('/', (req, res) => {
-    console.log('hello');
+const { signupUser, loginUser } = require('../controllers/userControllers');
 
-    res.json()
 
-})
 
-userRouter.post('/', (req, res) => {
-    console.log('hello');
 
-    res.json()
+userRouter.post('/signup', signupUser)
 
-})
-userRouter.put('/', (req, res) => {
-    console.log('hello');
 
-    res.json()
+userRouter.post('/login', loginUser)
 
-})
-userRouter.delete('/', (req, res) => {
-    console.log('hello');
 
-    res.json()
-
-})
 
 module.exports = userRouter
