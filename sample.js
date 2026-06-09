@@ -1,11 +1,15 @@
-const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-bcrypt.hash('123456', 10, function (err, hash) {
-    console.log(hash);
+// jwt.sign({ name: 'john' }, '123', (err, token) => {
 
-});
+//     console.log(token);
 
-bcrypt.compare("12345", "$2b$10$8A7Hf1EwW9nOkqBmqyGNZeak2ZYhZd9ijJQKKbvPtP5lZksPZFVTi", function (err, result) {
-    console.log(result);
 
+// })
+
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9obiIsImlhdCI6MTc4MDk4MzIzN30.JoVKcGc2YsryuQyj_WRSfzTMWZ_CNHNzt92tTJ6-_Nc'
+
+
+jwt.verify(token, '123', function (err, decoded) {
+    console.log(decoded) // bar
 });

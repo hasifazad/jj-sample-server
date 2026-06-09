@@ -1,12 +1,12 @@
 const Book = require("../models/bookModel");
 
-
+const jwt = require('jsonwebtoken');
 
 let createBook = async (req, res) => {
     console.log(req.body);
 
     let { title, author, description, price } = req.body
-  
+
     try {
         await Book.create({
             title, author, description, price
@@ -40,6 +40,8 @@ let getAllBooks = async (req, res) => {
             error
         })
     }
+
+
 
 
 }
