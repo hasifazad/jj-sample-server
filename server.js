@@ -21,11 +21,26 @@ app.use(cors())
 app.use('/user', userRouter)
 
 
+
+
+
+// app.post('/image', upload.single('image'), (req, res) => {
+
+//     console.log(req.file)
+//     console.log(req.body)
+
+//     
+
+// })
+
+
 // private
-app.use('/book', tokenValidate, bookRouter)
+app.use('/book', bookRouter)
 
 
 
 app.listen(3000, () => {
     console.log('serer connected');
 })
+
+

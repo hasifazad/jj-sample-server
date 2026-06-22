@@ -3,10 +3,12 @@ let express = require('express');
 let bookRouter = express.Router()
 
 
-const { createBook, getAllBooks, getBookDetails, updateBook, deleteBook } = require('../controllers/bookControllers');
+const { createBook, getAllBooks, getBookDetails, updateBook, deleteBook }
+ = require('../controllers/bookControllers');
+const upload = require('../config/imageUpload');
 
 
-bookRouter.post('/', createBook)
+bookRouter.post('/', upload.single('image'), createBook)
 
 bookRouter.get('/', getAllBooks)
 

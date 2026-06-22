@@ -4,13 +4,18 @@ const jwt = require('jsonwebtoken');
 
 let createBook = async (req, res) => {
     console.log(req.body);
+    console.log(req.file);
 
     let { title, author, description, price } = req.body
+    let { filename } = req.file
+
+    
 
     try {
         await Book.create({
-            title, author, description, price
+            title, author, description, price, filename
         })
+
         res.status(200).json({
             success: true,
             message: 'book created successfully'
